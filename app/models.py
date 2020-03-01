@@ -13,7 +13,7 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
-    answer = models.TextField()
+    text = models.TextField()
     is_true = models.BooleanField(default=False)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
