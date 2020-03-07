@@ -3,7 +3,7 @@
 <br>
 <div class="row">
     <div class="col-lg-3 bg-primary text-white">
-        <p id="timer"></p>
+
         <!-- Modal -->
         <div class="modal fade" id="timerModal" tabindex="-1" role="dialog" aria-labelledby="timerModalLabel"
             aria-hidden="true">
@@ -16,11 +16,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h3 class="text-dark">Ahahaha çözemedin</h3>
+                        <h3 class="text-dark">VUUHAHAHAHA You couldn't solve</h3>
                         <img src="/static/images/DeliEmoji.png" alt="">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            onclick="location.reload()">Close</button>
                     </div>
                 </div>
             </div>
@@ -32,12 +33,13 @@
         <h3 class="text-center purpletext">
             {%if result%}
             <span class="bg-success text-white">
-                Doğrular : {{result.true_answers}}
+                Trues : {{result.true_answers}}
             </span>
             <span class="bg-danger text-white">
-                Yanlışlar : {{result.false_answers}}
+                Falses : {{result.false_answers}}
             </span>
-
+            {% else %}
+            <p id="timer"></p>
             {%endif %}
         </h3>
     </div>
@@ -77,13 +79,13 @@
     {% endfor %}
     <div class="row mt-3">
         <div class="col">
-            <button id="yaramazButon" class="btn btn-outline-primary" type="submit">Sonucu göster</button>
+            <button id="trickButton" class="btn btn-outline-primary" type="submit">Show Result</button>
         </div>
     </div>
 </form>
 {% else%}
 <h1 class="text-center redtext">
-    Kayıtlı soru bulunmamaktadır...
+    There are no registered questions...
 </h1>
 {% endif %}
 {% endblock %}

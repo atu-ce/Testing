@@ -1,18 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing Page</title>
     <link rel="stylesheet" href="/static/lib/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/.colourcss.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        crossorigin="anonymous">
-
     <style>
-        #yaramazButon {
+        #trickButton {
             position: absolute;
             right: 10px;
             left: 10px;
@@ -21,7 +17,6 @@
         }
     </style>
 </head>
-
 <body>
     {% include 'navbar.html' %}
     <div class="container">
@@ -34,16 +29,13 @@
         </div>
     </div>
 
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        crossorigin="anonymous"></script>
+    <script src="/static/lib/node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="/static/lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- my java scripts -->
     <script>
         $(function () {
-            $("#yaramazButon").on({
+            $("#trickButton").on({
                 mouseover: function () {
                     $(this).css({
                         left: (Math.random() * 200) + "px",
@@ -55,7 +47,7 @@
         });
     </script>
     <script>
-        var timeLeft = 30;
+        var timeLeft = 10;
         var elem = document.getElementById('timer');
         var timerId = setInterval(countdown, 1000);
 
@@ -64,15 +56,13 @@
                 clearTimeout(timerId);
                 doSomething();
             } else {
-                elem.innerHTML = timeLeft + ' saniye kaldı';
+                elem.innerHTML = timeLeft + ' seconds left';
                 timeLeft--;
             }
         }
-
         function doSomething() {
             $('#timerModal').modal('show');
         }
     </script>
 </body>
-
 </html>
