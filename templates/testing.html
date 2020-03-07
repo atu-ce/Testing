@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% block appbody%}
+<br>
+<div class="row">
+    <div class="col">
+        <h3 class="text-center purpletext">
+            {%if result%}
+            <span class="bg-success text-white">
+                Doğrular : {{result.true_answers}}
+            </span>
+            <span class="bg-danger text-white">
+                Yanlışlar : {{result.false_answers}}
+            </span>
+            
+            {%endif %}
+        </h3>
+    </div>
+</div>
+<hr>
+{% if questions %}
+<form action="" class="mt-2" method="POST">
+    {% csrf_token %}
+    {% for myquestion in questions %}
+    <div class="row">
+        <div class="col">
+            <span class="text-left redtext">
+                {{myquestion.id}}.)
+            </span>
+            <span class="text-center blacktext">
+                {{myquestion}}
+            </span>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        {% for myanswer in answers %}
+        {% if myanswer.question.id == myquestion.id %}
+        <div class="col">
+            <label for="idAnswer{{myanswer.id}}">
+                <span class="text-center greytext">
+                    {{myanswer}}
+                </span>
+            </label>
+            <input type="radio" value="{{myanswer}}" name="answers{{myquestion.id}}" id="idAnswer{{myanswer.id}}"
+                required />
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <hr>
+    {% endfor %}
+    <div class="row mt-3">
+        <div class="col">
+            <button id="yaramazButon" class="btn btn-outline-primary" type="submit">Sonucu göster</button>
+        </div>
+    </div>
+</form>
+{% else%}
+<h1 class="text-center redtext">
+    Kayıtlı soru bulunmamaktadır...
+</h1>
+{% endif %}
+{% endblock %}
