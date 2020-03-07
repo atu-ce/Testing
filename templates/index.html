@@ -12,12 +12,12 @@
         crossorigin="anonymous">
 
     <style>
-        button {
+        #yaramazButon {
             position: absolute;
             right: 10px;
             left: 10px;
             top: 10px;
-            
+
         }
     </style>
 </head>
@@ -43,7 +43,7 @@
     <!-- my java scripts -->
     <script>
         $(function () {
-            $("button").on({
+            $("#yaramazButon").on({
                 mouseover: function () {
                     $(this).css({
                         left: (Math.random() * 200) + "px",
@@ -53,6 +53,25 @@
                 }
             });
         });
+    </script>
+    <script>
+        var timeLeft = 30;
+        var elem = document.getElementById('timer');
+        var timerId = setInterval(countdown, 1000);
+
+        function countdown() {
+            if (timeLeft == -1) {
+                clearTimeout(timerId);
+                doSomething();
+            } else {
+                elem.innerHTML = timeLeft + ' saniye kaldı';
+                timeLeft--;
+            }
+        }
+
+        function doSomething() {
+            $('#timerModal').modal('show');
+        }
     </script>
 </body>
 

@@ -2,6 +2,32 @@
 {% block appbody%}
 <br>
 <div class="row">
+    <div class="col-lg-3 bg-primary text-white">
+        <p id="timer"></p>
+        <!-- Modal -->
+        <div class="modal fade" id="timerModal" tabindex="-1" role="dialog" aria-labelledby="timerModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="timerModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="text-dark">Ahahaha çözemedin</h3>
+                        <img src="/static/images/DeliEmoji.png" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
     <div class="col">
         <h3 class="text-center purpletext">
             {%if result%}
@@ -11,7 +37,7 @@
             <span class="bg-danger text-white">
                 Yanlışlar : {{result.false_answers}}
             </span>
-            
+
             {%endif %}
         </h3>
     </div>
