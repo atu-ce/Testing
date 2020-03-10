@@ -7,7 +7,6 @@ User = get_user_model()
 
 class Question(models.Model):
     text = models.TextField()
-    u_date = models.DateTimeField(auto_now=True, blank=True)
 
     def __str__(self):
         return self.text
